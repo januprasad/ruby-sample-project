@@ -4,7 +4,7 @@ var CONFIG = {
     id: null, // set in onConnect
     last_message_time: 1,
     focus: true, //event listeners bound in onConnect
-    unread: 0, //updated in the message-processing loop
+    unread: 0 //updated in the message-processing loop
 };
 var nicks = [];
 
@@ -197,7 +197,7 @@ function scrollDown() {
 function addMessage(from, text, time, _class) {
     if (text === null) return;
 
-    if (time == null) {
+    if (time === null) {
         // if the time is null or undefined, use the current time.
         time = new Date();
     }
@@ -467,8 +467,7 @@ $(document).ready(function() {
         //make the actual join request to the server
         $.ajax({
             cache: false,
-            type: "GET" // XXX should be POST
-            ,
+            type: "GET",
             dataType: "json",
             url: "/join",
             data: {

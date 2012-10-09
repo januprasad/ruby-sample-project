@@ -1,8 +1,8 @@
 var createServer = require("http").createServer;
 var readFile = require("fs").readFile;
-var sys = require("sys");
+var util = require("util");
 var url = require("url");
-DEBUG = false;
+var DEBUG = false;
 
 var fu = exports;
 
@@ -69,10 +69,10 @@ fu.staticHandler = function(filename) {
             return;
         }
 
-        sys.puts("loading " + filename + "...");
+        util.puts("loading " + filename + "...");
         readFile(filename, function(err, data) {
             if (err) {
-                sys.puts("Error loading " + filename);
+                util.puts("Error loading " + filename);
             }
             else {
                 body = data;
@@ -81,7 +81,7 @@ fu.staticHandler = function(filename) {
                     "Content-Length": body.length
                 };
                 if (!DEBUG) headers["Cache-Control"] = "public";
-                sys.puts("static file " + filename + " loaded");
+                util.puts("static file " + filename + " loaded");
                 callback();
             }
         });
@@ -95,7 +95,6 @@ fu.staticHandler = function(filename) {
     }
 };
 
-// stolen from jack- thanks
 fu.mime = {
     // returns MIME type for extension, or fallback, or octet-steam
     lookupExtension: function(ext, fallback) {

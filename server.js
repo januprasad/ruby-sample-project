@@ -1,5 +1,5 @@
-var HOST = null; // localhost
-var PORT = 8001;
+var HOST = process.env.IP;
+var PORT = process.env.PORT;
 
 // when the daemon started
 var starttime = (new Date()).getTime();
@@ -12,7 +12,7 @@ setInterval(function() {
 
 
 var fu = require("./fu"),
-    sys = require("sys"),
+    util = require("util"),
     url = require("url"),
     qs = require("querystring");
 
@@ -26,21 +26,20 @@ var channel = new function() {
     this.appendMessage = function(nick, type, text) {
         var m = {
             nick: nick,
-            type: type // "msg", "join", "part"
-            ,
+            type: type, // "msg", "join", "part"
             text: text,
             timestamp: (new Date()).getTime()
         };
 
         switch (type) {
         case "msg":
-            sys.puts("<" + nick + "> " + text);
+            util.puts("<" + nick + "> " + text);
             break;
         case "join":
-            sys.puts(nick + " join");
+            util.puts(nick + " join");
             break;
         case "part":
-            sys.puts(nick + " part");
+            util.puts(nick + " part");
             break;
         }
 
@@ -61,7 +60,7 @@ var channel = new function() {
             if (message.timestamp > since) matching.push(message)
         }
 
-        if (matching.length != 0) {
+        if (matching.length !== 0) {
             callback(matching);
         }
         else {
@@ -88,12 +87,13 @@ function createSession(nick) {
     if (nick.length > 50) return null;
     if (/[^\w_\-^!]/.exec(nick)) return null;
 
+    var session;
     for (var i in sessions) {
-        var session = sessions[i];
+        session = sessions[i];
         if (session && session.nick === nick) return null;
     }
 
-    var session = {
+    session = {
         nick: nick,
         id: Math.floor(Math.random() * 99999999999).toString(),
         timestamp: new Date(),
@@ -148,21 +148,21 @@ fu.get("/who", function(req, res) {
 
 fu.get("/join", function(req, res) {
     var nick = qs.parse(url.parse(req.url).query).nick;
-    if (nick == null || nick.length == 0) {
+    if (nick === null || nick.length === 0) {
         res.simpleJSON(400, {
             error: "Bad nick."
         });
         return;
     }
     var session = createSession(nick);
-    if (session == null) {
+    if (session === null) {
         res.simpleJSON(400, {
             error: "Nick in use"
         });
         return;
     }
 
-    //sys.puts("connection: " + nick + "@" + res.connection.remoteAddress);
+    //util.puts("connection: " + nick + "@" + res.connection.remoteAddress);
     channel.appendMessage(session.nick, "join");
     res.simpleJSON(200, {
         id: session.id,

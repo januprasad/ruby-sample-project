@@ -2,7 +2,7 @@
 
 puts "Hello world from Cloud9"
 
-# click the 'Run' button on the top to start this application
+# click the 'Run' button at the top to start this application
 
 # === RUNNING RUBY ON RAILS ===
 #

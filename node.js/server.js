@@ -3,11 +3,12 @@ var http = require("http");
 
 // create a server
 http.createServer(function(req, res) {
-    // on every request we'll output 'Hello world'
+    // on every request, we'll output 'Hello world'
     res.end("Hello world from Cloud9!");
 }).listen(process.env.PORT, process.env.IP);
 
-// when spawning a server listen on the PORT and IP environment variables
+// Note: when spawning a server on Cloud9 IDE, 
+// listen on the process.env.PORT and process.env.IP environment variables
 
-// click the 'Run' button on the top to start your server,
-// then click the URL that is emitted to the Output window
+// Click the 'Run' button at the top to start your server,
+// then click the URL that is emitted to the Output tab of the console

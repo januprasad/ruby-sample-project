@@ -8,36 +8,32 @@
     ----------------------------------------------------------------- 
 
 
-    Hi there! Welcome to Cloud9 IDE!
+Hi there! Welcome to Cloud9 IDE!
 
-    To Run this demo Workspace follow these simple instructions:
+To get you started, we have created a few example applications.
 
-    1)  First open the file called "server.js" from the filetree on the left. 
-          If you don't see the files panel, open it with Ctrl+U (cmd+U on Mac.)
+1) Choose the application that you want to run by selecting a language folder
 
-    2)  With the file "server.js" as the active file press the Run button. 
-          (The Run button is located in the middle of the Top menu bar.)
+2) Open the file within the folder
 
-    3)  As soon as you hit Run the console will open showing you the link to the running server!
-          Simply click the link and it will open in a new browser window!
-        
-        
-        And that's all there's to it really! Just have fun and go ahead and edit 
-        the code or add new files if you want. It's all up to you! 
+3) Folow the run instructions in the file's comments
+    
+And that's all there is to it! Just have fun. Go ahead and edit the code, 
+or add new files. It's all up to you! 
 
-        Happy coding!
-        The Cloud9 IDE team
+Happy coding!
+The Cloud9 IDE team
 
-        P.S. Oh I almost forgot, to start a complete new project just hop on over to your 
-        dashboard and hit the big green button labelled "Create New Workspace." :) 
+P.S. Oh, one more thing: to start a new project, hop on over to your 
+dashboard and hit the big green button labelled "Create New Workspace."
 
 
-::: Support & Documentation.
-    Visit http://docs.c9.io for support or to learn more about using Cloud9 IDE. 
-    If you want to watch some training videos visit http://www.youtube.com/user/c9ide
+## Support & Documentation
 
-::: About this demo.
-    We provide this demo workspace in order for you to experience the power of Cloud9 IDE. 
-    It contains a simple Node.js chat program which you can Run, Debug, and Preview the HTML.
-    You can do pretty much anything you like with this file!
+Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
+To watch some training videos, visit http://www.youtube.com/user/c9ide
 
+## About this demo
+
+We provide this demo workspace in order for you to experience the power of Cloud9 IDE. 
+It contains sample projects for Node.js, PHP, Python, Ruby, and HTML5.
